@@ -1,0 +1,55 @@
+.todo {
+  &__main {
+    width: 400px;
+    margin: 100px auto;
+    padding: 15px 15px;
+    border-radius: 15px;
+    background: #ff7775e1;
+    box-shadow: -15px -15px rgba(116, 115, 115, 0.075);
+  }
+
+  &__header {
+    &-title {
+      font-size: 24px;
+      line-height: 32px;
+      color: #fff;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 10px;
+
+    ::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+
+    &-task-count {
+      float: left;
+      color: #fff;
+    }
+
+    &-task-btngroup {
+      float: right;
+
+      .button {
+        margin-right: 8px;
+
+        :last-child {
+          margin: 0;
+        }
+      }
+
+      .button--all {
+        min-width: 35px;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+        border-radius: 20px;
+        color: #fff;
+        background: #ff4d4f;
+      }
+    }
+  }
+}
