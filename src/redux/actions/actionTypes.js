@@ -1,0 +1,5 @@
+const ADD_TODO = 'ADD_TODO';
+const CHANGE_INPUT = 'CHANGE_INPUT';
+const IS_ERROR = 'IS_ERROR';
+
+export { ADD_TODO, CHANGE_INPUT, IS_ERROR };

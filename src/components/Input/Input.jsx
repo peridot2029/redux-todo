@@ -1,16 +1,31 @@
-import React from "react";
-import classNames from "classnames";
-import "./Input.scss";
+import React, { useCallback, useEffect } from 'react';
+import classNames from 'classnames';
+import './Input.scss';
 
-const Input = ({ type = "text", name, placeholder }) => {
-  const inputClass = classNames("input", name && `input--${name}`);
+const Input = ({ type = 'text', name, value, placeholder, ...props }) => {
+  const inputClass = classNames('input', name && `input--${name}`);
 
-  const labelClass = classNames("label", name && `label--${name}`);
+  const labelClass = classNames('label', name && `label--${name}`);
+
+  const onChange = useCallback(e => {
+    const { onChange } = props;
+    if (onChange) {
+      onChange(e.target.value);
+    }
+  });
+
+  useEffect(() => {}, []);
 
   return (
     <>
       <label className={labelClass}>
-        <input placeholder={placeholder} type={type} className={inputClass} />
+        <input
+          placeholder={placeholder}
+          type={type}
+          className={inputClass}
+          value={value}
+          onChange={onChange}
+        />
       </label>
     </>
   );

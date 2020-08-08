@@ -9,4 +9,8 @@
   .button--add {
     display: none;
   }
+  .is-error::before {
+    font-weight: 700;
+    content: 'plase enter the contents';
+  }
 }
