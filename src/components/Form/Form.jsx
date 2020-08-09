@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo, changeInput } from './../../redux/actions';
+// import { addTodo } from './../../redux/actions';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Error from './../Error/Error';
@@ -10,25 +10,28 @@ const Form = () => {
   const [value, setValue] = useState('');
   const [error, setError] = useState(false);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const onSubmit = useCallback(e => {
-    e.preventDefault();
-    if (value.length <= 0) {
-      setError(true);
-    } else {
-      dispatch(addTodo(value));
-      setError(false);
-      setValue('');
-    }
-  });
+  const onSubmit = useCallback(
+    e => {
+      e.preventDefault();
+      if (value.length <= 0) {
+        setError(true);
+      } else {
+        // dispatch(addTodo(value));
+        setError(false);
+        setValue('');
+      }
+    },
+    [error, value]
+  );
 
-  const onChange = useCallback(value => {
-    setValue(value);
-    dispatch(changeInput(value));
-  });
-
-  useEffect(() => {}, []);
+  const onChange = useCallback(
+    value => {
+      setValue(value);
+    },
+    [value]
+  );
 
   return (
     <form className='form-add' onSubmit={onSubmit}>

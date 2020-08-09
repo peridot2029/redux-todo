@@ -1,14 +1,25 @@
 import React from 'react';
 import Form from '../Form/Form';
 import Button from '../Button/Button';
+import { dateYear, dateMonth, dateDay, dateDate } from '../../api/todoDate';
 import './TodoList.scss';
 
 const TodoList = () => {
+  const year = dateYear();
+  const month = dateMonth();
+  const day = dateDay();
+  const date = dateDate();
+
   return (
     <>
       <main className='todo__main'>
         <header className='todo__header'>
-          <h1 className='todo__header-title'>Wed Jul 29 2020</h1>
+          <div className='todo__header-date-wrapper'>
+            <span className='todo-date-day'>{day}</span>
+            <span className='todo-date-month'>{month}</span>
+            <span className='todo-date-date'>{date}</span>
+            <span className='todo-date-year'>{year}</span>
+          </div>
         </header>
 
         <nav className='todo__nav'>

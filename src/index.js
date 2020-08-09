@@ -4,7 +4,7 @@ import App from './pages/App';
 import { createStore } from 'redux';
 import rootReducer from './redux/reducer/index';
 import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './config/serviceWorker';
 
 const devTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();

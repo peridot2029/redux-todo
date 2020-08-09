@@ -9,10 +9,17 @@
   }
 
   &__header {
-    &-title {
-      font-size: 24px;
-      line-height: 32px;
-      color: #fff;
+    &-date-wrapper {
+      span {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        margin-left: 10px;
+        color: #fff;
+        &:first-child {
+          margin: 0;
+        }
+      }
     }
   }
 
@@ -21,7 +28,7 @@
 
     ::after {
       clear: both;
-      content: "";
+      content: '';
       display: table;
     }
 
