@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import './Input.scss';
 
@@ -7,12 +7,12 @@ const Input = ({ type = 'text', name, value, placeholder, ...props }) => {
 
   const labelClass = classNames('label', name && `label--${name}`);
 
-  const onChange = useCallback(e => {
+  const onChange = e => {
     const { onChange } = props;
     if (onChange) {
       onChange(e.target.value);
     }
-  });
+  };
 
   useEffect(() => {}, []);
 

@@ -7,11 +7,6 @@ const initialState = {
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_INPUT:
-      return {
-        ...state,
-        input: action.payload,
-      };
     case ADD_TODO:
       return {
         ...state,
