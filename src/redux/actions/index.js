@@ -1,26 +1,34 @@
-import { ADD_TODO, CHANGE_INPUT, IS_ERROR } from './actionTypes';
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  SET_TODOLIST_FILTER,
+  SHOW_ALL,
+  SHOW_ACTIVE,
+  SHOW_COMPLETED,
+} from './actionTypes';
 import cuid from 'cuid';
 
 const addTodo = text => ({
   type: ADD_TODO,
-  payload: {
-    id: cuid(),
-    content: text,
-    isCompleted: false,
-    created: new Date(),
-  },
-});
-
-const changeInput = text => ({
-  type: CHANGE_INPUT,
+  id: cuid(),
   text,
 });
 
-const isError = () => ({
-  type: IS_ERROR,
-  payload: {
-    error: true,
-  },
+const toggleTodo = id => ({
+  type: TOGGLE_TODO,
+  id,
 });
 
-export { addTodo, changeInput, isError };
+const setTodoListFilter = filter => ({
+  type: SET_TODOLIST_FILTER,
+  filter,
+});
+
+// VisibilityFilters
+const todoListFilters = {
+  SHOW_ALL: SHOW_ALL,
+  SHOW_ACTIVE: SHOW_ACTIVE,
+  SHOW_COMPLETED: SHOW_COMPLETED,
+};
+
+export { addTodo, toggleTodo, setTodoListFilter, todoListFilters };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import './Input.scss';
 
@@ -13,8 +13,6 @@ const Input = ({ type = 'text', name, value, placeholder, ...props }) => {
       onChange(e.target.value);
     }
   };
-
-  useEffect(() => {}, []);
 
   return (
     <>

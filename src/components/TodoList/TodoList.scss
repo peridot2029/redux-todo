@@ -28,7 +28,7 @@
 
     ::after {
       clear: both;
-      content: '';
+      content: "";
       display: table;
     }
 
@@ -42,16 +42,15 @@
 
       .button {
         margin-right: 8px;
+        text-transform: uppercase;
 
-        :last-child {
+        &:last-child {
           margin: 0;
         }
       }
 
       .button--all {
-        min-width: 35px;
-        font-size: 14px;
-        line-height: 22px;
+        min-width: 40px;
         font-weight: 600;
         border-radius: 20px;
         color: #fff;

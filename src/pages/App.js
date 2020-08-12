@@ -1,13 +1,11 @@
 import React from 'react';
-import TodoList from './../components/TodoList/TodoList';
+import VisibleTodoList from '../containers/VisibleTodoList';
 import './App.css';
-import TodosContainer from './../containers/TodosContainer';
 
 function App() {
   return (
     <>
-      <TodoList />
-      <TodosContainer />
+      <VisibleTodoList />
     </>
   );
 }

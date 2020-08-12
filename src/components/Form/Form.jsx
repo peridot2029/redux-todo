@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
@@ -8,18 +8,21 @@ import './Form.scss';
 
 const Form = () => {
   const [value, setValue] = useState('');
-  const dispatch = useDispatch();
-  // const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
+  const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
 
     if (value.length <= 0) {
+      setError(true);
     } else {
       dispatch(addTodo(value));
+      setError(false);
       setValue('');
     }
   };
+
   const handleChange = value => {
     setValue(value);
   };
@@ -34,9 +37,9 @@ const Form = () => {
         onChange={handleChange}
       />
       <Button type='submit' name='add' />
-      {/* <Error name={error} /> */}
+      <Error name={error} />
     </form>
   );
 };
 
-export default Form;
+export default connect()(Form);

@@ -1,7 +1,12 @@
-import React from "react";
-import "./TodoItem.scss";
+import React from 'react';
+import Checkbox from '../Checkbox/Checkbox';
+import './TodoItem.scss';
 
-const TodoItem = () => {
-  return <li></li>;
+const TodoItem = ({ todo }) => {
+  return (
+    <li>
+      <Checkbox />
+    </li>
+  );
 };
 export default TodoItem;
