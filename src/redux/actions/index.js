@@ -24,7 +24,6 @@ const setTodoListFilter = filter => ({
   filter,
 });
 
-// VisibilityFilters
 const todoListFilters = {
   SHOW_ALL: SHOW_ALL,
   SHOW_ACTIVE: SHOW_ACTIVE,

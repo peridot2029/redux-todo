@@ -1,5 +1,32 @@
-.checkbox {
-	width: 15px;
-	height: 15px;
-	cursor: pointer;
+.label {
+	.checkbox {
+		position: absolute;
+		opacity: 0;
+
+		&:checked ~ .overlay {
+			background-color: #4acea3;
+			border-color: #43bb93;
+			opacity: 1;
+
+			i {
+				display: block;
+			}
+		}
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 18px;
+		width: 18px;
+		border-radius: 50%;
+		background-color: transparent;
+		border: 2px solid #bbbdc7;
+
+		i {
+			color: white;
+			display: none;
+		}
+	}
 }
