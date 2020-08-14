@@ -1,4 +1,16 @@
-li {
-  position: relative;
-  height: 34px;
+.todo {
+  &__completed--list {
+    li {
+      display: flex;
+      // position: relative;
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px solid #ff7775f3;
+      margin: 0 0 5px 0;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
 }

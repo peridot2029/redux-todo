@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Icon from './../Icon/Icon';
+import { BsCheck as Check } from 'react-icons/bs';
 import './Checkbox.scss';
 
 const Checkbox = ({ type = 'checkbox' }) => {
@@ -11,8 +11,8 @@ const Checkbox = ({ type = 'checkbox' }) => {
     <>
       <label className={labelClass}>
         <input type={type} className={checkboxClass} />
-        <span className='overlay'>
-          <Icon name='check' />
+        <span className='icon-cover'>
+          <Check size='1.15em' color='#FF6666' className='icon--check' />
         </span>
       </label>
     </>

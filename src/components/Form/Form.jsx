@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import { useDispatch, connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import Error from './../Error/Error';
 import './Form.scss';
 
 const Form = () => {
@@ -37,7 +37,8 @@ const Form = () => {
         onChange={handleChange}
       />
       <Button type='submit' name='add' />
-      <Error name={error} />
+
+      <div className={classNames('error', error && 'is--error')} />
     </form>
   );
 };

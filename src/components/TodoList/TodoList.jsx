@@ -15,20 +15,20 @@ const TodoList = ({ todos }) => {
 
   return (
     <>
-      <main className='todo__main'>
-        <header className='todo__header'>
-          <div className='todo__header-date-wrapper'>
-            <span className='todo-date-day'>{DAY}</span>
-            <span className='todo-date-month'>{MONTH}</span>
-            <span className='todo-date-date'>{DATE}</span>
-            <span className='todo-date-year'>{YEAR}</span>
+      <main className='todo-main'>
+        <header className='todo-header'>
+          <div className='todo-header__date-wrapper'>
+            <span className='date--day'>{DAY}</span>
+            <span className='date--month'>{MONTH}</span>
+            <span className='date--date'>{DATE}</span>
+            <span className='date--year'>{YEAR}</span>
           </div>
         </header>
 
-        <nav className='todo__nav'>
-          <div className='todo__nav-task-count'>{TODOS_COUNT} tasks</div>
+        <nav className='todo-nav'>
+          <div className='todo-nav__task--counts'>{TODOS_COUNT} tasks</div>
 
-          <div className='todo__nav-task-btngroup'>
+          <div className='todo-nav__task--links'>
             <FilterLink filter={todoListFilters.SHOW_ALL} name='all' />
             <FilterLink filter={todoListFilters.SHOW_ACTIVE} name='active' />
             <FilterLink
@@ -41,7 +41,7 @@ const TodoList = ({ todos }) => {
         <Form />
 
         <div className='todo__completed-wrapper'>
-          <ul className='todo__completed-list'>
+          <ul className='todo__completed--list'>
             {todos.map(todo => (
               <TodoItem key={todo.id} todo={todo} />
             ))}
@@ -49,7 +49,7 @@ const TodoList = ({ todos }) => {
         </div>
 
         <div className='todo__incompleted-wrapper'>
-          <ul className='todo__incompleted-list'></ul>
+          <ul className='incompleted--list'></ul>
         </div>
       </main>
     </>

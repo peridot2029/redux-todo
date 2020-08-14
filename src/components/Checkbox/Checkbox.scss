@@ -1,32 +1,36 @@
 .label {
-	.checkbox {
-		position: absolute;
-		opacity: 0;
+  position: relative;
 
-		&:checked ~ .overlay {
-			background-color: #4acea3;
-			border-color: #43bb93;
-			opacity: 1;
+  .checkbox {
+    position: absolute;
+    opacity: 0;
 
-			i {
-				display: block;
-			}
-		}
-	}
+    &:checked ~ .icon-cover {
+      background: #fff;
+      opacity: 1;
 
-	.overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 18px;
-		width: 18px;
-		border-radius: 50%;
-		background-color: transparent;
-		border: 2px solid #bbbdc7;
+      .icon--check {
+        display: block;
+      }
+    }
+  }
 
-		i {
-			color: white;
-			display: none;
-		}
-	}
+  .icon-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    margin: 0 15px;
+    line-height: 15px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    background: transparent;
+
+    .icon--check {
+      margin: -1px;
+      border-radius: 2px;
+      display: none;
+    }
+  }
 }

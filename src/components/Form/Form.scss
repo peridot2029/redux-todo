@@ -1,16 +1,23 @@
 .form-add {
   .input--add {
-    width: 100%;
-    font-size: 16px;
-    line-height: 26px;
-    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+    margin: 15px 15px;
+    padding: 0 0 0 10px;
+    border-radius: 5px;
+    color: black;
+    background: #fff;
   }
 
   .button--add {
     display: none;
   }
-  .is-error::before {
-    font-weight: 700;
+
+  .is--error::before {
+    color: red;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 15px;
     content: 'plase enter the contents';
   }
 }
