@@ -18,8 +18,8 @@ const Form = () => {
       setError(true);
     } else {
       dispatch(addTodo(value));
-      setError(false);
       setValue('');
+      setError(false);
     }
   };
 

@@ -2,10 +2,22 @@ import React from 'react';
 import classNames from 'classnames';
 import './Input.scss';
 
-const Input = ({ type = 'text', name, value, placeholder, ...props }) => {
-  const inputClass = classNames('input', name && `input--${name}`);
+const Input = ({
+  type = 'text',
+  name,
+  active,
+  id,
+  placeholder,
+  label,
+  ...props
+}) => {
+  const inputClass = classNames('input', name && `input--${name}`, {
+    'input__is-readonly': !active && id,
+  });
 
-  const labelClass = classNames('label', name && `label--${name}`);
+  const labelClass = classNames('label', name && `label--${name}`, {
+    'label__is-readonly': !active && id,
+  });
 
   const onChange = e => {
     const { onChange } = props;
@@ -17,11 +29,11 @@ const Input = ({ type = 'text', name, value, placeholder, ...props }) => {
   return (
     <>
       <label className={labelClass}>
+        {label && <span className='label__input'>{label}</span>}
         <input
-          placeholder={placeholder}
           type={type}
+          placeholder={placeholder}
           className={inputClass}
-          value={value}
           onChange={onChange}
         />
       </label>

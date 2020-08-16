@@ -1,6 +1,8 @@
 import {
   ADD_TODO,
   TOGGLE_TODO,
+  COMPLETE_TODO,
+  DELTE_TODO,
   SET_TODOLIST_FILTER,
   SHOW_ALL,
   SHOW_ACTIVE,
@@ -10,8 +12,13 @@ import cuid from 'cuid';
 
 const addTodo = text => ({
   type: ADD_TODO,
-  id: cuid(),
-  text,
+
+  payload: {
+    id: cuid(),
+    content: text,
+    isCompleted: false,
+    created: new Date(),
+  },
 });
 
 const toggleTodo = id => ({
@@ -19,6 +26,14 @@ const toggleTodo = id => ({
   id,
 });
 
+const compltedTodo = index => ({
+  type: COMPLETE_TODO,
+  index,
+});
+const deletedTodo = index => ({
+  type: DELTE_TODO,
+  index,
+});
 const setTodoListFilter = filter => ({
   type: SET_TODOLIST_FILTER,
   filter,
@@ -30,4 +45,11 @@ const todoListFilters = {
   SHOW_COMPLETED: SHOW_COMPLETED,
 };
 
-export { addTodo, toggleTodo, setTodoListFilter, todoListFilters };
+export {
+  addTodo,
+  toggleTodo,
+  compltedTodo,
+  deletedTodo,
+  setTodoListFilter,
+  todoListFilters,
+};

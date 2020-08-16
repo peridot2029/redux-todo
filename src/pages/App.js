@@ -1,11 +1,11 @@
 import React from 'react';
-import TodoList from '../containers/TodoList';
+import TodoListContainer from '../containers/TodoListContainer';
 import './App.css';
 
 function App() {
   return (
     <>
-      <TodoList />
+      <TodoListContainer />
     </>
   );
 }

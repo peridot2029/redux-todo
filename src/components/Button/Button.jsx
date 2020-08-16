@@ -1,14 +1,16 @@
 import React from 'react';
+import { FiXCircle as Delete } from 'react-icons/fi';
 import PropTypes, { element, string, func } from 'prop-types';
 import classNames from 'classnames';
 import './Button.scss';
 
-const Button = ({ type = 'button', name, children }) => {
+const Button = ({ type = 'button', name, children, onClick, icon }) => {
   const buttonClass = classNames('button', name && `button--${name}`);
 
   return (
-    <button type={type} className={buttonClass}>
-      {children || name}
+    <button type={type} className={buttonClass} onClick={onClick}>
+      {!icon && (children || name)}
+      {icon && <Delete size='1.40em' color='red' />}
     </button>
   );
 };
@@ -18,4 +20,5 @@ Button.propTypes = {
   children: PropTypes.oneOfType([element, string]),
   onClick: func,
 };
+
 export default Button;

@@ -45,7 +45,7 @@
 
     ::after {
       clear: both;
-      content: '';
+      content: "";
       display: table;
     }
 
@@ -60,6 +60,7 @@
 
       &--all {
         min-width: 35px;
+        min-height: 20px;
         border-radius: 20px;
         color: #fff;
         background: #ff4d4f;

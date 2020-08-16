@@ -1,25 +1,34 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/actionTypes';
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  COMPLETE_TODO,
+  DELTE_TODO,
+} from '../actions/actionTypes';
 
-const initialState = [];
+const initialState = {
+  todos: [],
+};
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [
+      return {
         ...state,
-        {
-          id: action.id,
-          content: action.text,
-          isCompleted: false,
-          created: new Date(),
-        },
-      ];
-    case TOGGLE_TODO:
-      return state.map(todo =>
-        todo.id === action.id
-          ? { ...todo, isCompleted: !todo.isCompleted }
-          : todo
-      );
+        todos: state.todos.concat({ ...action.payload }),
+      };
+    // case TOGGLE_TODO:
+    //   return state.map(todo =>
+    //     todo.id === action.id
+    //       ? { ...todo, isCompleted: !todo.isCompleted }
+    //       : todo
+    //   );
+    case COMPLETE_TODO:
+      
+    case DELTE_TODO: {
+      const list = [...state.todos];
+      list.splice(action.index, 1);
+      return { todos: list };
+    }
 
     default:
       return state;

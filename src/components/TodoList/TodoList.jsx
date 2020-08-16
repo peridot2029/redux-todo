@@ -17,6 +17,7 @@ const TodoList = ({ todos }) => {
     <>
       <main className='todo-main'>
         <header className='todo-header'>
+          <h2 className='a11y-hidden'>todo header</h2>
           <div className='todo-header__date-wrapper'>
             <span className='date--day'>{DAY}</span>
             <span className='date--month'>{MONTH}</span>
@@ -26,6 +27,7 @@ const TodoList = ({ todos }) => {
         </header>
 
         <nav className='todo-nav'>
+          <h2 className='a11y-hidden'>todo navigation</h2>
           <div className='todo-nav__task--counts'>{TODOS_COUNT} tasks</div>
 
           <div className='todo-nav__task--links'>
@@ -42,8 +44,8 @@ const TodoList = ({ todos }) => {
 
         <div className='todo__completed-wrapper'>
           <ul className='todo__completed--list'>
-            {todos.map(todo => (
-              <TodoItem key={todo.id} todo={todo} />
+            {todos.map(item => (
+              <TodoItem key={item.id} item={item} />
             ))}
           </ul>
         </div>
