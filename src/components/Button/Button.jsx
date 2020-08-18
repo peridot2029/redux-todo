@@ -1,6 +1,6 @@
 import React from 'react';
-import { FiXCircle as Delete } from 'react-icons/fi';
 import PropTypes, { element, string, func } from 'prop-types';
+import { FiXCircle as Delete } from 'react-icons/fi';
 import classNames from 'classnames';
 import './Button.scss';
 
@@ -14,8 +14,9 @@ const Button = ({ type = 'button', name, children, onClick, icon }) => {
     </button>
   );
 };
+
 Button.propTypes = {
-  type: string.isRequired,
+  type: PropTypes.oneOf(['button', 'reset', 'submit', null]),
   name: string,
   children: PropTypes.oneOfType([element, string]),
   onClick: func,

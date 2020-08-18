@@ -8,33 +8,33 @@ import './Form.scss';
 
 const Form = () => {
   const [value, setValue] = useState('');
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(Boolean(false));
 
   const dispatch = useDispatch();
-  const handleSubmit = e => {
+  const onSubmit = e => {
     e.preventDefault();
 
     if (value.length <= 0) {
       setError(true);
     } else {
       dispatch(addTodo(value));
-      setValue('');
       setError(false);
+      setValue('');
     }
   };
 
-  const handleChange = value => {
+  const onChange = value => {
     setValue(value);
   };
 
   return (
-    <form className='form-add' onSubmit={handleSubmit}>
+    <form className='form-add' onSubmit={onSubmit}>
       <Input
         type='text'
         name='add'
         placeholder='add a new task'
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <Button type='submit' name='add' />
 

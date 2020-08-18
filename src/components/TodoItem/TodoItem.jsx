@@ -1,26 +1,57 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector, connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import { compltedTodo, deletedTodo } from '../../redux/actions';
+import { useDispatch, connect, useSelector } from 'react-redux';
 import Checkbox from '../Checkbox/Checkbox';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import './TodoItem.scss';
 
-const TodoItem = ({ item }) => {
-  const [active, setActive] = useState(false);
-  const dispatch = useDispatch();
+const TodoItem = ({ item, completed }) => {
+  console.group('todo item -> completed');
+  console.log(typeof completed);
+  console.groupEnd('todo item -> completed');
   const { todos } = useSelector(state => state.todos, []);
+  const [active, setActive] = useState(false);
+  const [isCheckced, setIsChecked] = useState(false);
+
+  const dispatch = useDispatch();
 
   const onClick = () => {
-    const index = todos.findIndex(todo => todo.id === item.id);
-    dispatch(deletedTodo(index));
+    dispatch(deletedTodo(item.id));
   };
+
+  const onChange = () => {
+    setIsChecked(true);
+  };
+
+  useEffect(() => {
+    if (!isCheckced) {
+      return;
+    }
+
+    if (isCheckced && !completed) {
+      console.group('todo item -> useEffect');
+      console.log(typeof completed);
+      console.groupEnd('todo item -> useEffect');
+
+      dispatch(compltedTodo(item.id));
+    }
+    /* eslint-disable react-hooks/exhaustive-deps */
+  }, [isCheckced, completed]);
 
   return (
     <li>
-      <Checkbox type='checkbox' />
+      <Checkbox
+        type='checkbox'
+        id={item.id}
+        value={item.completed}
+        onChange={onChange}
+      />
       <Input type='text' id={item.id} label={item.content} active={active} />
-      <Button type='submit' name='delete' onClick={onClick} icon={true} />
+
+      <div className='btnGroup'>
+        <Button type='button' name='delete' onClick={onClick} icon={true} />
+      </div>
     </li>
   );
 };

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import React, { useState, useEffect } from 'react';
 import { BsCheck as Check } from 'react-icons/bs';
+import classNames from 'classnames';
 import './Checkbox.scss';
 
-const Checkbox = ({ type = 'checkbox', value, ...props }) => {
+const Checkbox = ({ type = 'checkbox', value, id, ...props }) => {
   const [checked, setChecked] = useState(value || false);
+  console.group('check -> checked value');
+  console.log(typeof checked);
+  console.groupEnd('check -> checked value');
 
-  const checkboxClass = classNames('checkbox');
-  const labelClass = classNames('label');
-
-  const handleChange = e => {
+  const onChange = e => {
     const { onChange } = props;
 
     setChecked(!checked);
@@ -18,18 +18,24 @@ const Checkbox = ({ type = 'checkbox', value, ...props }) => {
       onChange(e.target.checked);
     }
   };
-
+  useEffect(() => {
+    if (checked) {
+      setChecked(true);
+    }
+  }, [checked]);
   return (
     <>
-      <label className={labelClass}>
-        <input type={type} className={checkboxClass} />
-
-        <span
-          className='icon-cover'
-          onChange={handleChange}
-          value={value}
+      <label className={classNames('label')}>
+        <input
+          type={type}
+          id={id}
+          className={classNames('checkbox')}
           checked={checked}
-        >
+          value={value}
+          onChange={onChange}
+        />
+
+        <span className='icon-cover'>
           <Check size='1.15em' color='#FF6666' className='icon--check' />
         </span>
       </label>

@@ -1,13 +1,73 @@
 .todo {
   &__completed--list {
     li {
+      display: flex;
+      position: relative;
+      box-sizing: border-box;
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px solid #ff7775f3;
+      margin: 0 0 10px 0;
+
+
+      &:hover {
+        background: #f59b99b7;
+
+        .button--delete {
+          opacity: 1;
+        }
+      }
+    }
+
+    .label {
+      margin-left: 15px;
+
+      &__is-readonly {
+        width: calc(100% - 135px);
+        // chrome
+        -webkit-text-decoration: line-through wavy rgba(247, 57, 57, 0.897);
+
+        text-decoration: line-through wavy rgba(247, 57, 57, 0.897);
+
+        .label__input {
+          position: relative;
+          bottom: 5px;
+          left: 20px;
+          width: 100%;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      .input {
+        &__is-readonly {
+          display: none;
+        }
+      }
+    }
+
+    .btnGroup {
+      position: relative;
+      top: -3px;
+      margin: 0 0 0 5px;
+
+      .button--delete {
+        margin: 4px 0 0 0;
+        padding: 0 0 0 45px;
+        background: transparent;
+        opacity: 0;
+      }
+    }
+  }
+
+  &__incompleted--list {
+    li {
       position: relative;
       box-sizing: border-box;
       display: flex;
       height: 30px;
       line-height: 30px;
       border-bottom: 1px solid #ff7775f3;
-
       margin: 0 0 10px 0;
 
       &:last-child {
@@ -46,9 +106,14 @@
       }
     }
 
-    .button {
-      &--delete {
-        margin-top: 4px;
+    .btnGroup {
+      position: relative;
+      top: -3px;
+      margin: 0 0 0 5px;
+
+      .button--delete {
+        margin: 4px 0 0 0;
+        padding: 0 0 0 45px;
         background: transparent;
         opacity: 0;
       }

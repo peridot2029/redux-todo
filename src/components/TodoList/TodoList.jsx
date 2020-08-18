@@ -35,7 +35,7 @@ const TodoList = ({ todos }) => {
             <FilterLink filter={todoListFilters.SHOW_ACTIVE} name='active' />
             <FilterLink
               filter={todoListFilters.SHOW_COMPLETED}
-              name='Completed'
+              name='completed'
             />
           </div>
         </nav>
@@ -44,14 +44,41 @@ const TodoList = ({ todos }) => {
 
         <div className='todo__completed-wrapper'>
           <ul className='todo__completed--list'>
-            {todos.map(item => (
-              <TodoItem key={item.id} item={item} />
-            ))}
+            {todos.map(item => {
+              console.group('todo list -> completed list');
+              console.log(typeof item.completed);
+              console.groupEnd('todo list -> completed list');
+              return (
+                item.completed && (
+                  <TodoItem
+                    key={item.id}
+                    item={item}
+                    completed={item.completed}
+                  />
+                )
+              );
+            })}
           </ul>
         </div>
 
         <div className='todo__incompleted-wrapper'>
-          <ul className='incompleted--list'></ul>
+          <ul className='todo__incompleted--list'>
+            {todos.map(item => {
+              console.group('todo list -> incompleted list');
+              console.log(typeof item.completed);
+              console.groupEnd('todo list -> incompleted list');
+
+              return (
+                !item.completed && (
+                  <TodoItem
+                    key={item.id}
+                    item={item}
+                    completed={item.completed}
+                  />
+                )
+              );
+            })}
+          </ul>
         </div>
       </main>
     </>

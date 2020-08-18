@@ -16,24 +16,34 @@ const addTodo = text => ({
   payload: {
     id: cuid(),
     content: text,
-    isCompleted: false,
+    completed: false,
     created: new Date(),
   },
 });
 
 const toggleTodo = id => ({
   type: TOGGLE_TODO,
-  id,
+
+  payload: {
+    id,
+  },
 });
 
-const compltedTodo = index => ({
+const compltedTodo = id => ({
   type: COMPLETE_TODO,
-  index,
+
+  payload: {
+    id,
+  },
 });
-const deletedTodo = index => ({
+
+const deletedTodo = id => ({
   type: DELTE_TODO,
-  index,
+  payload: {
+    id,
+  },
 });
+
 const setTodoListFilter = filter => ({
   type: SET_TODOLIST_FILTER,
   filter,

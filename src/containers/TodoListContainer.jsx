@@ -1,11 +1,10 @@
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
-import { toggleTodo, todoListFilters } from '../redux/actions';
+import { useSelector } from 'react-redux';
+// import { toggleTodo, todoListFilters } from '../redux/actions';
 import TodoList from '../components/TodoList/TodoList';
 
 const TodoListContainer = () => {
   const { todos } = useSelector(state => state.todos, []);
-  console.log(todos);
 
   return <TodoList todos={todos} />;
 };

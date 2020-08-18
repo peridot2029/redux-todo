@@ -7,6 +7,7 @@ const Input = ({
   name,
   active,
   id,
+  value,
   placeholder,
   label,
   ...props
@@ -21,6 +22,7 @@ const Input = ({
 
   const onChange = e => {
     const { onChange } = props;
+
     if (onChange) {
       onChange(e.target.value);
     }
@@ -32,8 +34,9 @@ const Input = ({
         {label && <span className='label__input'>{label}</span>}
         <input
           type={type}
-          placeholder={placeholder}
           className={inputClass}
+          value={value}
+          placeholder={placeholder}
           onChange={onChange}
         />
       </label>

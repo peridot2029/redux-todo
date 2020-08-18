@@ -1,11 +1,9 @@
 const dateYear = () => {
-  let date = new Date();
-  return date.getFullYear();
+  return new Date().getFullYear();
 };
-const dateMonth = () => {
-  let date = new Date();
-  let getMonth = date.getMonth() + 1;
 
+const dateMonth = () => {
+  let getMonth = new Date().getMonth() + 1;
   switch (getMonth) {
     case 1:
       getMonth = 'Jan';
@@ -49,8 +47,7 @@ const dateMonth = () => {
   return getMonth;
 };
 const dateDay = () => {
-  let date = new Date();
-  let getDay = date.getDay();
+  let getDay = new Date().getDay();
 
   switch (getDay) {
     case 0:

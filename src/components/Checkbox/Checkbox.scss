@@ -1,11 +1,10 @@
 .label {
-  // position: relative;
 
   .checkbox {
     position: absolute;
     opacity: 0;
 
-    &:checked ~ .icon-cover {
+    &:checked~.icon-cover {
       background: #fff;
       opacity: 1;
 
