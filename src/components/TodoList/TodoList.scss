@@ -11,6 +11,7 @@
     padding: 15px 15px;
 
     &__date-wrapper {
+
       .date--day,
       .date--month,
       .date--date,
@@ -29,25 +30,18 @@
   }
 
   &-nav {
+    display: flex;
+    justify-content: space-between;
     padding: 0 15px;
     margin-bottom: 10px;
 
     &__task--counts {
-      float: left;
       font-size: 16px;
       line-height: 24px;
       color: #fff;
     }
 
-    &__task--links {
-      float: right;
-    }
-
-    ::after {
-      clear: both;
-      content: "";
-      display: table;
-    }
+    // &__task--links {}
 
     .button {
       margin-right: 8px;

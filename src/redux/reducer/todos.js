@@ -6,15 +6,17 @@ const initialState = {
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TODO:
+    case ADD_TODO: {
+      state.todos.push({ ...action.payload });
       return {
         ...state,
-        todos: state.todos.concat({ ...action.payload }),
       };
+    }
     case DELTE_TODO: {
       const index = state.todos.findIndex(item => {
         return item.id === action.payload.id;
       });
+
       const list = [...state.todos];
       list.splice(index, 1);
       return {

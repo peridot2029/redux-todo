@@ -5,6 +5,7 @@ import TodoList from '../components/TodoList/TodoList';
 
 const TodoListContainer = () => {
   const { todos } = useSelector(state => state.todos, []);
+  console.log('container', todos);
 
   return <TodoList todos={todos} />;
 };
